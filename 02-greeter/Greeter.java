@@ -3,6 +3,6 @@ import java.util.*;
 
 public class Greeter{
     public void greet(){
-	System.out.pinrtln("Hello World!");
+	System.out.println("Hello World!");
     }
 }
