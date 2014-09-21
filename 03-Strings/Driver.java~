@@ -1,0 +1,13 @@
+public class Driver{
+    public static void main(String[] args){
+	String s ="shi shu";
+	String firstname = s.substring(0,indexOf(' '));
+	String lastname = s.substring(indexOf(' ') + 1);
+	public String getfirstname(){
+	    return firstname;
+	}
+	public String getlastname(){
+	    return lastname;
+	}
+    }
+}
