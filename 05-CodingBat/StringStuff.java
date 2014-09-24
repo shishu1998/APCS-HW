@@ -14,5 +14,7 @@ public class StringStuff{
 	}
 	else {
 	    return 21 - n;}
+    
+    	
     }
 }
