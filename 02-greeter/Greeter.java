@@ -4,7 +4,7 @@ import java.util.*;
 //added a comment
 
 public class Greeter{
-    public void greet(){
-	System.out.pinrtln("Hello World!");
+    public static void main(String[]args){
+	System.out.println("Hello World!");
     }
 }
