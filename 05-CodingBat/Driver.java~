@@ -1,0 +1,8 @@
+public class Driver{
+    public static void main(String[] args){
+	System.out.println(nonStart("hello","goodbye"));
+	System.out.println(makeAbba("racecar","DrowsySword"));
+	System.out.println(diff21(5));
+    }
+}
+
