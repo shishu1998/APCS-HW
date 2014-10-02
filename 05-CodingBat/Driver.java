@@ -6,7 +6,6 @@ public class Driver{
 	StringStuff ss2 = new StringStuff();
 	//third variable
 	StringStuff ss3 = new StringStuff();
-
 	//test one
 	System.out.println(ss1.nonStart("hello","goodbye"));
 	//test two
