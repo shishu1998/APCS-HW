@@ -4,6 +4,6 @@ public class Driver {
 	System.out.println(s.box(5,4));
 	System.out.println(s.box(4,5));
 	System.out.println(s.tri1(4));
-	System.out.println(s.tri2(4));
+	System.out.println(s.tri2(5));
     }
 }
