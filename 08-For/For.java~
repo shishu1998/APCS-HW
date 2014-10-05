@@ -1,0 +1,14 @@
+public class For{
+    public String frame(int r, int c){
+	int star;
+	int star2;
+	int space = c - 2;
+	int counter;
+	String output = "";
+	for (counter = 0;counter < r;counter = counter + 1){
+	    if (counter == 1 or counter == r - 1){
+		for(star = c;star > 0;star = star - 1){
+		    output = output + "*";}
+		output = output + "\n";}
+	    else{ 
+		for(
