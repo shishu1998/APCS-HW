@@ -31,6 +31,7 @@ public class Driver{
             if(caster.gethealth() <= 0){
                 System.out.println(fighter.getname() + " kills " +  caster.getname()+  " with a swing to the head!");
             }
+            System.out.println("Warrior Health: " + fighter.gethealth() + "\nMage Health: " + caster.gethealth());
         }   
         
                 
