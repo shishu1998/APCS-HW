@@ -15,11 +15,4 @@ public class basechar{
     public void sethealth(int value){
         health = value;
     }
-    
-}public class basechar{
-    private int Health = 200;
-    public int getHealth(){
-	return Health;
-    }
-    
 }
