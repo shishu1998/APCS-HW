@@ -1,7 +1,7 @@
 public class Mage extends basechar{
     //Instance Variables for Mage:
     public void initialize(){
-        this.attack = 40;
+        this.attack = 30;
         this.name = "Mage";
     }
     public int getattack(){

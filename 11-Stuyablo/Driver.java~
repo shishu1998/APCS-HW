@@ -19,17 +19,12 @@ public class Driver{
             else{
                 System.out.println(caster.getname() + " took " + 0 + " damage");
             }
-	    try {
-		Thread.sleep(1000);                 //1000 milliseconds is one second.
-	    } catch(InterruptedException ex) {}
-	    if(strike2> 0){
+            if(strike2> 0){
                 fighter.sethealth(fighter.gethealth() - strike2);
                 System.out.println(fighter.getname() + " took " + strike2 + " damage");}
             else{
-                System.out.println(fighter.getname() + " took " + 0 + " damage");}
-	    try {
-		Thread.sleep(1000);                 //1000 milliseconds is one second.
-	    } catch(InterruptedException ex) {}
+                System.out.println(fighter.getname() + " took " + 0 + " damage");
+            }
             if(fighter.gethealth() <= 0){
                 System.out.println(caster.getname() + " kills " +  fighter.getname()+  " with fireballs!");
             }

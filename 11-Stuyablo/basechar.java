@@ -1,8 +1,8 @@
 public class basechar{
     //Instance Variables
     public int health = 200;
-    public  int attack = 20;
-    public  int armor = 10;
+    public  int attack = 120;
+    public  int armor = 50;
     public  String name = "";
     
     //Constructors
@@ -11,15 +11,9 @@ public class basechar{
     public int gethealth(){
 	return health;
     }
-    
     public void sethealth(int value){
         health = value;
     }
-    
-}public class basechar{
-    private int Health = 200;
-    public int getHealth(){
-	return Health;
-    }
-    
 }
+    
+
