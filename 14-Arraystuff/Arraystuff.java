@@ -35,7 +35,7 @@ public class Arraystuff {
     public int find(int n){
 	int result = -1;
 	int counter = 0;
-	while (counter < a.length -1 && a[counter] != n){
+	while (counter < a.length - 1 && a[counter] != n){
 	    counter = counter + 1;
 	    if(a[counter] == n){
 	    result = counter;
@@ -52,6 +52,21 @@ public class Arraystuff {
 	    }
 	}
 	return result;
+    }
+    public int sum67(int[] nums) {
+	int sum = 0;
+	boolean add = true;
+	for(int counter=0;counter < nums.length; counter++){
+	    if (nums[counter] == 6){
+		add = false;}
+	    if(add == true){
+		sum = sum + nums[counter];
+	    }
+	    if(nums[counter] == 7){
+		add = true;
+	    }
+	}
+	return sum;
     }
     public static void main(String[] args) {
 	Arraystuff as = new Arraystuff();
