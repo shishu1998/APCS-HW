@@ -68,6 +68,22 @@ public class Arraystuff {
 	}
 	return sum;
     }
+    public boolean more14(int[] nums) {
+	boolean more;
+	int count1= 0;
+	int count4 = 0;
+	for(int counter = 0;counter < nums.length;counter ++){
+	    if(nums[counter] == 4){
+		count4 = count4 + 1;}
+	    if(nums[counter] == 1){
+		count1 = count1 + 1;
+	    }
+
+	}
+	return count1 > count4;
+  
+    }
+
     public static void main(String[] args) {
 	Arraystuff as = new Arraystuff();
 	System.out.println(as);
