@@ -35,7 +35,7 @@ public class Arraystuff {
     public int find(int n){
 	int result = -1;
 	int counter = 0;
-	while (counter < a.length -1 && a[counter] != n){
+	while (counter < a.length - 1 && a[counter] != n){
 	    counter = counter + 1;
 	    if(a[counter] == n){
 	    result = counter;
@@ -43,10 +43,52 @@ public class Arraystuff {
 	}
 	return result;
     }
+    public int maxVal(){
+	int result;
+	result = a[0];
+	for (int counter = 1;counter < a.length - 1;counter = counter + 1){
+	    if(a[counter] > result){
+		result = a[counter];
+	    }
+	}
+	return result;
+    }
+    public int sum67(int[] nums) {
+	int sum = 0;
+	boolean add = true;
+	for(int counter=0;counter < nums.length; counter++){
+	    if (nums[counter] == 6){
+		add = false;}
+	    if(add == true){
+		sum = sum + nums[counter];
+	    }
+	    if(nums[counter] == 7){
+		add = true;
+	    }
+	}
+	return sum;
+    }
+    public boolean more14(int[] nums) {
+	boolean more;
+	int count1= 0;
+	int count4 = 0;
+	for(int counter = 0;counter < nums.length;counter ++){
+	    if(nums[counter] == 4){
+		count4 = count4 + 1;}
+	    if(nums[counter] == 1){
+		count1 = count1 + 1;
+	    }
+
+	}
+	return count1 > count4;
+  
+    }
+
     public static void main(String[] args) {
 	Arraystuff as = new Arraystuff();
 	System.out.println(as);
 	System.out.println(as.find(100));
+	System.out.println(as.maxVal());
 	
     }
 }

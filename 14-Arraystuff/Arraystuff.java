@@ -83,7 +83,38 @@ public class Arraystuff {
 	return count1 > count4;
   
     }
-
+    public int[] tenRun(int[] nums) {
+	int[] result = new int[nums.length];
+	boolean ten = false;
+	int replace = 0;
+	for(int counter = 0;counter < nums.length;counter ++){
+	    if(nums[counter] % 10 == 0){
+		ten = true;
+		replace = nums[counter];
+	    }
+	    if(ten == true){
+		result[counter] = replace;
+	    }
+	    if(ten == false){
+		result[counter] = nums[counter];
+	    }
+	}
+	return result;
+  
+    }
+    public boolean tripleUp(int[] nums) {
+	boolean result = false;
+	int count = 0;
+	for(int counter = 2;counter < nums.length;counter ++){
+	    int num1 = nums[counter];
+	    int num2 = nums[counter -1] + 1;
+	    int num3 = nums[counter - 2] + 2;
+	    if(num1 == num2 & num1 == num3){
+		result = true;
+	    }
+	}
+	return result;
+    }
     public static void main(String[] args) {
 	Arraystuff as = new Arraystuff();
 	System.out.println(as);
