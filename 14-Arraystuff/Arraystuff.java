@@ -115,6 +115,49 @@ public class Arraystuff {
 	}
 	return result;
     }
+    public boolean canBalance(int[] nums) {
+	int sum = 0;
+	int sum2 = 0;
+	if(nums.length < 2){
+	    return false;
+	}
+	for(int counter = 0;counter < nums.length;counter++){
+	    sum = sum + nums[counter];
+	}
+	if(sum % 2 == 1){
+	    return false;
+	}
+	else{
+	    sum = sum / 2;
+	}
+	for(int counter2 = 0;sum2 < sum;counter2 ++){
+	    sum2 = sum2 + nums[counter2];
+	}  
+	return sum == sum2;
+    }
+    public int[] seriesUp(int n) {
+	int len = n*(n + 1) / 2;
+	int[] result = new int[len];
+	int position = 0;
+	int num = 1;
+	int limit = 1;
+	for(int counter = 0;counter < len;counter++){
+	    position = counter;
+	    if(num <= limit){
+		result[position] = num;
+		num = num + 1;
+	    }
+	    else{
+		limit = limit + 1;
+		num = 1;
+		result[position] = num;
+		num = num + 1;
+	    }
+	}
+	
+	return result;
+    }
+
     public static void main(String[] args) {
 	Arraystuff as = new Arraystuff();
 	System.out.println(as);
