@@ -157,12 +157,23 @@ public class Arraystuff {
 	
 	return result;
     }
+    public int freq(int num){
+	int check = a[num];
+	int result = 0;
+	for(int counter = 0;counter < a.length;counter ++){
+	    if(a[counter] == check){
+		result ++;
+	    }
+	}
+	return result;
+    }
 
     public static void main(String[] args) {
 	Arraystuff as = new Arraystuff();
 	System.out.println(as);
 	System.out.println(as.find(100));
 	System.out.println(as.maxVal());
+	System.out.println(as.freq(2));
 	
     }
 }

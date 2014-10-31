@@ -167,6 +167,32 @@ public class Arraystuff {
 	}
 	return result;
     }
+    /* I tried to make it so that the code would check to see if there's another of the same number in the whole array, then it splices it into two parts to see if there're mirrors, however that didn't really work out since this did not work for all of the cases.
+     */
+    public int maxMirror(int[] nums) {
+	int dbpos;
+	int count1 = 0;
+	int count2 = 0;
+	int check = 0;
+	for(int counter = 0;counter < nums.length;counter++){
+	    check = nums[counter];
+	    dbpos = 0;
+	    for(int counter2 = 0;counter2 < nums.length;counter2 ++){
+      if (nums[nums.length - 1 - counter2] == check){
+	  dbpos = nums.length - 1 - counter2;
+      }
+	    }
+	    for(int counter3 = 0;counter3 < nums.length;counter3 ++){
+		if(counter3 < dbpos && nums[counter3] == nums[dbpos - counter3]){
+		    count1 = count1 + 1;
+		}
+		else if(count1 > count2){
+		    count2 = count1;
+		}
+	    }
+	}
+	return count2;
+    }
 
     public static void main(String[] args) {
 	Arraystuff as = new Arraystuff();
