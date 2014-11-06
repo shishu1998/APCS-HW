@@ -167,6 +167,7 @@ public class Arraystuff {
 	}
 	return result;
     }
+<<<<<<< HEAD
     /* I tried to make it so that the code would check to see if there's another of the same number in the whole array, then it splices it into two parts to see if there're mirrors, however that didn't really work out since this did not work for all of the cases.
      */
     public int maxMirror(int[] nums) {
@@ -194,12 +195,26 @@ public class Arraystuff {
 	return count2;
     }
 
+=======
+    public int mode(){
+	int freq = 0;
+	int pos = 0;
+	for(int counter = 0;counter < a.length; counter ++){
+	    if (freq(a[counter]) > freq){
+		freq = freq(a[counter]);
+		pos = counter;
+	    }
+	}
+	return a[pos];
+    }
+>>>>>>> 55ad079616e3e5a92552038f47aff5dc63f4974a
     public static void main(String[] args) {
 	Arraystuff as = new Arraystuff();
 	System.out.println(as);
 	System.out.println(as.find(100));
 	System.out.println(as.maxVal());
 	System.out.println(as.freq(2));
+       	System.out.println(as.mode());
 	
     }
 }
