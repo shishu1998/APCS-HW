@@ -195,15 +195,15 @@ public class Arraystuff {
     }
 
     public int mode(){
-	int freq = 0;
-	int pos = 0;
-	for(int counter = 0;counter < a.length; counter ++){
-	    if (freq(a[counter]) > freq){
-		freq = freq(a[counter]);
-		pos = counter;
+	int count = 0;
+	int modeIndex = 0;
+	for (int i=0;i<a.length;i++){
+	    if (freq(a[i]) > count){
+		count = freq(a[i]);
+		modeIndex = i;
 	    }
 	}
-	return a[pos];
+	return count;
     }
     public static void main(String[] args) {
 	Arraystuff as = new Arraystuff();
