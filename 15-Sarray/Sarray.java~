@@ -1,0 +1,40 @@
+public class Sarray{
+    private int[] data;
+    private int last = 0;
+    public Sarray(){
+	data = new int[10];
+    }
+    public boolean add(int i){
+	int len = data.length;
+	if(last == len){
+	    int []data2 = new int[len + 1];
+	    for(int counter = 0;counter < len; counter ++){
+		data2[counter] = data[counter];
+	    }
+	    last ++;
+	    data[last] = i;
+	}
+	else{
+	    last ++;
+	    data[last] = i;
+	}
+	return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
