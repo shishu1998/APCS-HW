@@ -40,11 +40,17 @@ public class Sarray{
 	return data[index];
     }
     public int set(int index, int i){
+	if (index>data.length -1){
+	    throw new ArrayIndexOutOfBoundsException();
+	}
 	int original = data[index];
 	data[index] = i;
 	return original;
     }
     public int remove(int index){
+	if (index>data.length -1){
+	    throw new ArrayIndexOutOfBoundsException();
+	}
 	int original = data[index];
 	for(int counter = index; counter < data.length - 1;counter ++){
 	    data[counter] = data[counter + 1];
@@ -53,6 +59,9 @@ public class Sarray{
 	return original;
     } 
     public void add(int index, int i){
+	if (index>data.length -1){
+	    throw new ArrayIndexOutOfBoundsException();
+	}
 	int len = data.length;
 	if (last != data.length){
 	    for(int counter = data.length - 1; counter > index; counter --){
