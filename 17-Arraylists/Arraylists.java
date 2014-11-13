@@ -15,9 +15,11 @@ public class Arraylists{
 	    int index2 = r.nextInt(al.size());
 	    int num1 = al.get(index1);
 	    int num2 = al.get(index2);
-	    
+	    al.set(index1,num2);
+	    al.set(index2,num1);
 	    
 	}
+	System.out.println(al);
 	
 	
     }
