@@ -1,0 +1,13 @@
+import java.io.*;
+import java.util.*;
+
+public class Arraylists{
+    Arraylist <Integer> al, al2;
+    al = new Arraylist<Integer>;
+    al2 = new Arraylist<Integer>;
+    Random r = new Random();
+    for(int i =0;int < al.
+
+
+
+}
