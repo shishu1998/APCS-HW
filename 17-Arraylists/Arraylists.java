@@ -20,6 +20,29 @@ public class Arraylists{
 	    
 	}
 	System.out.println(al);
+	int[] array = new int[20];
+	for(int i = 0; i < 20; i ++){
+	    array[i] = i;
+	}
+	String in = "";
+	for(int i = 0;i < array.length - 1; i ++){
+	    in  = in + array[i] + " , ";
+	}
+	System.out.println(in);
+	for(int i = 0; i < 100; i ++){
+	    int index1 = r.nextInt(array.length);
+	    int index2 = r.nextInt(array.length);
+	    int num1 = array[index1];
+	    int num2 = array[index2];
+	    array[index1] = num2;
+	    array[index2] = num1;
+	    
+	}
+	String out = "";
+	for(int i = 0;i < array.length - 1; i ++){
+	    out = out + array[i] + " , ";
+	}
+	System.out.println(out);
 	
 	
     }
