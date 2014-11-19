@@ -25,8 +25,8 @@ public class Arraylists{
 	    array[i] = i;
 	}
 	String in = "";
-	for(int i = 0;i < array.length - 1; i ++){
-	    in  = in + array[i] + " , ";
+	for(int i = 0;i < array.length; i ++){
+	    in  = in + array[i] + ", ";
 	}
 	System.out.println(in);
 	for(int i = 0; i < 100; i ++){
@@ -39,8 +39,8 @@ public class Arraylists{
 	    
 	}
 	String out = "";
-	for(int i = 0;i < array.length - 1; i ++){
-	    out = out + array[i] + " , ";
+	for(int i = 0;i < array.length; i ++){
+	    out = out + array[i] + ", ";
 	}
 	System.out.println(out);
 	
