@@ -5,9 +5,13 @@
 public class WordSearch{
 
     private char[][] board;
-
+    private int column;
+    private int row;
+    
     public WordSearch(int r, int c){
 	board = new char[r][c];
+	row = r;
+	column = c;
 	for (int i = 0; i < board.length; i++) {
 	    for (int j = 0; j < board[i].length; j++) {
 		board[i][j]='.';
@@ -32,19 +36,46 @@ public class WordSearch{
     
     public void addWordRight(String w,int row, int col){
 	int r = row, c = col;
-	
-	for (int i=0;i<w.length();i++){
-	    board[r][c] = w.charAt(i);
-	    c++;
+	boolean check = true;
+	if (c + w.length()- 1 > column){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
 	}
 
+	    
+	for(int i = 0;i< w.length(); i ++){
+	    if(board[r][c] != '.' && board[r][c] != w.charAt(i)){
+		System.out.println(w + " conflicts letters with other words");
+		check = false;
+		i = w.length();
+	    }
+	    c ++;
+	}
+	c = col;
+	if(check == true){
+	    for (int i=0;i<w.length();i++){
+		board[r][c] = w.charAt(i);
+		c++;
+	    }
+	}
     }
     public void addWordLeft(String w, int row, int col){
 	int r = row,c = col;
-	if(col - w.length() < 0){
-	    System.out.println("Error,the word '" +  w + "' is too long for that index");
+	boolean check = true;
+	if(col - w.length() + 1 < 0){
+	    System.out.println("Error,the word " +  w + " is too long for that index");
+	    check = false;
 	}
-	else{
+	for(int i = 0;i< w.length(); i ++){
+	    if(board[r][c] != '.' && board[r][c] != w.charAt(i)){
+		System.out.println(w + " conflicts letters with other words");
+		check = false;
+		i = w.length();
+	    }
+	    c --;
+	}
+	c = col;
+	if (check == true){
 	    for(int i =0; i < w.length(); i++){
 		board[r][c] = w.charAt(i);
 		c --;
@@ -56,8 +87,11 @@ public class WordSearch{
 	WordSearch w = new WordSearch();
 	//System.out.println(w);
 	w.addWordRight("hello",3,5);
+	w.addWordRight("bah",3,5);
 	w.addWordLeft("look",4,8);
 	w.addWordLeft("man",4,2);
+	w.addWordLeft("tan",4,3);
+	w.addWordRight("brown",5,25);
 	
 	System.out.println(w);
     }
