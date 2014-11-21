@@ -6,11 +6,11 @@ public class WordSearch{
 
     private char[][] board;
     private int column;
-    private int row;
+    private int rw;
     
     public WordSearch(int r, int c){
 	board = new char[r][c];
-	row = r;
+	rw = r;
 	column = c;
 	for (int i = 0; i < board.length; i++) {
 	    for (int j = 0; j < board[i].length; j++) {
@@ -82,6 +82,57 @@ public class WordSearch{
 	    }
 	}
     }
+    public void addWordUp(String w,int row, int col){
+	int r = row, c = col;
+	boolean check = true;
+	if (r - w.length()- 1 < 0){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
+	
+	
+	for(int i = 0;i< w.length(); i ++){
+	    if(board[r][c] != '.' && board[r][c] != w.charAt(i)){
+		System.out.println(w + " conflicts letters with other words");
+		check = false;
+		i = w.length();
+	    }
+	    r --;
+	}
+	r = row;
+	if(check == true){
+	    for (int i=0;i<w.length();i++){
+		board[r][c] = w.charAt(i);
+		r--;
+	    }
+	}
+    }
+     public void addWordDown(String w,int row, int col){
+	int r = row, c = col;
+	boolean check = true;
+	if (r + w.length()- 1 > rw){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
+	
+	
+	for(int i = 0;i< w.length(); i ++){
+	    if(board[r][c] != '.' && board[r][c] != w.charAt(i)){
+		System.out.println(w + " conflicts letters with other words");
+		check = false;
+		i = w.length();
+	    }
+	    r ++;
+	}
+	r = row;
+	if(check == true){
+	    for (int i=0;i<w.length();i++){
+		board[r][c] = w.charAt(i);
+		r++;
+	    }
+	}
+    }
+   
     
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
@@ -92,6 +143,9 @@ public class WordSearch{
 	w.addWordLeft("man",4,2);
 	w.addWordLeft("tan",4,3);
 	w.addWordRight("brown",5,25);
+	w.addWordUp("boo",5,9);
+	w.addWordDown("mope",10,10);
+	w.addWordDown("nothing",4,0);
 	
 	System.out.println(w);
     }
