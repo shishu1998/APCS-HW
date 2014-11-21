@@ -87,6 +87,7 @@ public class WordSearch{
 	WordSearch w = new WordSearch();
 	//System.out.println(w);
 	w.addWordRight("hello",3,5);
+	w.addWordRight("lock",3,8);
 	w.addWordRight("bah",3,5);
 	w.addWordLeft("look",4,8);
 	w.addWordLeft("man",4,2);
