@@ -132,6 +132,91 @@ public class WordSearch{
 	    }
 	}
     }
+    public void addWordTopRight(String w,int row, int col){
+	int r = row, c = col;
+	boolean check = true;
+	if (r - w.length()- 1 < 0 || c + w.length()- 1 > column){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
+	
+	
+	for(int i = 0;i< w.length(); i ++){
+	    if(board[r][c] != '.' && board[r][c] != w.charAt(i)){
+		System.out.println(w + " conflicts letters with other words");
+		check = false;
+		i = w.length();
+	    }
+	    r --;
+	    c ++;
+	}
+	r = row;
+	c = col;
+	if(check == true){
+	    for (int i=0;i<w.length();i++){
+		board[r][c] = w.charAt(i);
+		r--;
+		c++;
+	    }
+	}
+    }
+    public void addWordTopLeft(String w,int row, int col){
+	int r = row, c = col;
+	boolean check = true;
+	if (r - w.length()- 1 < 0 ||col - w.length() + 1 < 0){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
+	
+	
+	for(int i = 0;i< w.length(); i ++){
+	    if(board[r][c] != '.' && board[r][c] != w.charAt(i)){
+		System.out.println(w + " conflicts letters with other words");
+		check = false;
+		i = w.length();
+	    }
+	    r --;
+	    c --;
+	}
+	r = row;
+	c = col;
+	if(check == true){
+	    for (int i=0;i<w.length();i++){
+		board[r][c] = w.charAt(i);
+		r--;
+		c--;
+	    }
+	}
+    }
+    public void addWordDownLeft(String w,int row, int col){
+	int r = row, c = col;
+	boolean check = true;
+	if (r + w.length()- 1 > rw||col - w.length() + 1 < 0){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
+	
+	
+	for(int i = 0;i< w.length(); i ++){
+	    if(board[r][c] != '.' && board[r][c] != w.charAt(i)){
+		System.out.println(w + " conflicts letters with other words");
+		check = false;
+		i = w.length();
+	    }
+	    r ++;
+	    c --;
+	}
+	r = row;
+	c = col;
+	if(check == true){
+	    for (int i=0;i<w.length();i++){
+		board[r][c] = w.charAt(i);
+		r++;
+		c--;
+	    }
+	}
+    }
+   
    
     
     public static void main(String[] args) {
@@ -147,6 +232,9 @@ public class WordSearch{
 	w.addWordUp("boo",5,9);
 	w.addWordDown("mope",10,10);
 	w.addWordDown("nothing",4,0);
+	w.addWordTopRight("something", 10,10);
+	w.addWordTopLeft("jasonmason",15,15);
+	w.addWordDownLeft("awesome",9,9);
 	
 	System.out.println(w);
     }
