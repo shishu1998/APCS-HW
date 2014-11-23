@@ -2,6 +2,8 @@
  * Creates a word search puzzle
  *
  */
+import java.io.*;
+import java.util.*;
 public class WordSearch{
 
     private char[][] board;
@@ -34,7 +36,7 @@ public class WordSearch{
 	return s;
     }
     
-    public void addWordRight(String w,int row, int col){
+    public boolean addWordRight(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
 	if (c + w.length()- 1 > column){
@@ -58,8 +60,9 @@ public class WordSearch{
 		c++;
 	    }
 	}
+	return check;
     }
-    public void addWordLeft(String w, int row, int col){
+    public boolean addWordLeft(String w, int row, int col){
 	int r = row,c = col;
 	boolean check = true;
 	if(col - w.length() + 1 < 0){
@@ -81,8 +84,9 @@ public class WordSearch{
 		c --;
 	    }
 	}
+	return check;
     }
-    public void addWordUp(String w,int row, int col){
+    public boolean addWordUp(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
 	if (r - w.length()- 1 < 0){
@@ -106,8 +110,9 @@ public class WordSearch{
 		r--;
 	    }
 	}
+	return check;
     }
-     public void addWordDown(String w,int row, int col){
+     public boolean addWordDown(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
 	if (r + w.length()- 1 > rw){
@@ -131,8 +136,9 @@ public class WordSearch{
 		r++;
 	    }
 	}
+	return check;
     }
-    public void addWordTopRight(String w,int row, int col){
+    public boolean addWordTopRight(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
 	if (r - w.length()- 1 < 0 || c + w.length()- 1 > column){
@@ -159,8 +165,9 @@ public class WordSearch{
 		c++;
 	    }
 	}
+	return check;
     }
-    public void addWordTopLeft(String w,int row, int col){
+    public boolean addWordTopLeft(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
 	if (r - w.length()- 1 < 0 ||col - w.length() + 1 < 0){
@@ -187,8 +194,39 @@ public class WordSearch{
 		c--;
 	    }
 	}
+	return check;
     }
-    public void addWordDownLeft(String w,int row, int col){
+    
+     public boolean addWordDownRight(String w,int row, int col){
+	int r = row, c = col;
+	boolean check = true;
+	if (r + w.length()- 1 > rw||c + w.length()- 1 > column){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
+	
+	
+	for(int i = 0;i< w.length(); i ++){
+	    if(board[r][c] != '.' && board[r][c] != w.charAt(i)){
+		System.out.println(w + " conflicts letters with other words");
+		check = false;
+		i = w.length();
+	    }
+	    r ++;
+	    c ++;
+	}
+	r = row;
+	c = col;
+	if(check == true){
+	    for (int i=0;i<w.length();i++){
+		board[r][c] = w.charAt(i);
+		r++;
+		c++;
+	    }
+	}
+	return check;
+    }
+    public boolean addWordDownLeft(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
 	if (r + w.length()- 1 > rw||col - w.length() + 1 < 0){
@@ -215,6 +253,38 @@ public class WordSearch{
 		c--;
 	    }
 	}
+	return check;
+    }
+    public boolean addWord(String w){
+	Random rand = new Random();
+	int direction = rand.nextInt(8);
+	int col = rand.nextInt(column);
+	int row = rand.nextInt(rw);
+	if(direction == 0){
+	    return addWordUp(w,row,col);
+	}
+	else if(direction == 1){
+	    return addWordDown(w,row,col);
+	}
+	else if(direction == 2){
+	    return addWordLeft(w,row,col);
+	}
+	else if(direction == 3){
+	    return addWordRight(w,row,col);
+	}
+	else if(direction == 4){
+	    return addWordDownLeft(w,row,col);
+	}
+	else if(direction == 5){
+	    return addWordDownRight(w,row,col);
+	}
+	else if(direction == 6){
+	    return addWordTopLeft(w,row,col);
+	}
+	else{
+	    return addWordTopRight(w,row,col);
+	}
+	
     }
    
    
@@ -235,7 +305,8 @@ public class WordSearch{
 	w.addWordTopRight("something", 10,10);
 	w.addWordTopLeft("jasonmason",15,15);
 	w.addWordDownLeft("awesome",9,9);
-	
+	w.addWordDownRight("extra",15,3);
+	System.out.println(w.addWord("test"));
 	System.out.println(w);
     }
     
