@@ -112,7 +112,7 @@ public class WordSearch{
 	}
 	return check;
     }
-     public boolean addWordDown(String w,int row, int col){
+    public boolean addWordDown(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
 	if (r + w.length()- 1 > rw){
@@ -197,7 +197,7 @@ public class WordSearch{
 	return check;
     }
     
-     public boolean addWordDownRight(String w,int row, int col){
+    public boolean addWordDownRight(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
 	if (r + w.length()- 1 > rw||c + w.length()- 1 > column){
@@ -305,7 +305,12 @@ public class WordSearch{
 	w.addWordTopLeft("jasonmason",15,15);
 	w.addWordDownLeft("awesome",9,9);
 	w.addWordDownRight("extra",15,3);
-	System.out.println(w.addWord("test"));
+	try{
+	    System.out.println(w.addWord("test"));
+	    System.out.println(w.addWord("wow"));
+	    System.out.println(w.addWord("bam"));
+	    System.out.println(w.addWord("perfect"));
+	}catch (Exception e){}
 	System.out.println(w);
     }
     
