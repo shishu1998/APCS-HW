@@ -229,7 +229,7 @@ public class WordSearch{
     public boolean addWordDownLeft(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
-	if (r + w.length()- 1 > rw||col - w.length() + 1 < 0){
+	if (r + w.length()- 1 > rw||col - w.length() + 1< 0){
 	    check = false;
 	    System.out.println("The word " + w + " is too long");
 	}
@@ -283,8 +283,7 @@ public class WordSearch{
 	}
 	else{
 	    return addWordTopRight(w,row,col);
-	}
-	
+	}	
     }
    
    
