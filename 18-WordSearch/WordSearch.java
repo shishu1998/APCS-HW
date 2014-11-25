@@ -43,7 +43,6 @@ public class WordSearch{
 	    check = false;
 	    System.out.println("The word " + w + " is too long");
 	}
-    
 
 	    
 	for(int i = 0;i< w.length(); i ++){
@@ -66,7 +65,10 @@ public class WordSearch{
     public boolean addWordLeft(String w, int row, int col){
 	int r = row,c = col;
 	boolean check = true;
-	   
+	if(col - w.length() + 1 < 0){
+	    System.out.println("Error,the word " +  w + " is too long for that index");
+	    check = false;
+	}
 	for(int i = 0;i< w.length(); i ++){
 	    if(board[r][c] != '.' && board[r][c] != w.charAt(i)){
 		System.out.println(w + " conflicts letters with other words");
@@ -87,11 +89,10 @@ public class WordSearch{
     public boolean addWordUp(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
-	try{
-	    if (r - w.length()- 1 < 0){
-		check = false;
-		System.out.println("The word " + w + " is too long");
-	    }}catch(exception e){}
+	if (r - w.length()- 1 < 0){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
 	
 	
 	for(int i = 0;i< w.length(); i ++){
@@ -111,14 +112,13 @@ public class WordSearch{
 	}
 	return check;
     }
-     public boolean addWordDown(String w,int row, int col){
+    public boolean addWordDown(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
-	try{
-	    if (r + w.length()- 1 > rw){
-		check = false;
-		System.out.println("The word " + w + " is too long");
-	    }}catch(exception e){}
+	if (r + w.length()- 1 > rw){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
 	
 	
 	for(int i = 0;i< w.length(); i ++){
@@ -141,11 +141,10 @@ public class WordSearch{
     public boolean addWordTopRight(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
-	try{
-	    if (r - w.length()- 1 < 0 || c + w.length()- 1 > column){
-		check = false;
-		System.out.println("The word " + w + " is too long");
-	    }}catch(exception e){}
+	if (r - w.length()- 1 < 0 || c + w.length()- 1 > column){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
 	
 	
 	for(int i = 0;i< w.length(); i ++){
@@ -171,11 +170,10 @@ public class WordSearch{
     public boolean addWordTopLeft(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
-	try{
-	    if (r - w.length()- 1 < 0 ||col - w.length() + 1 < 0){
-		check = false;
-		System.out.println("The word " + w + " is too long");
-	    }}catch(exception e){}
+	if (r - w.length()- 1 < 0 ||col - w.length() + 1 < 0){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
 	
 	
 	for(int i = 0;i< w.length(); i ++){
@@ -199,15 +197,13 @@ public class WordSearch{
 	return check;
     }
     
-     public boolean addWordDownRight(String w,int row, int col){
+    public boolean addWordDownRight(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
-	try{
-	    if (r + w.length()- 1 > rw||c + w.length()- 1 > column){
-		check = false;
-		System.out.println("The word " + w + " is too long");
-	    }
-	}catch (exception e){}
+	if (r + w.length()- 1 > rw||c + w.length()- 1 > column){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
 	
 	
 	for(int i = 0;i< w.length(); i ++){
@@ -233,11 +229,10 @@ public class WordSearch{
     public boolean addWordDownLeft(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
-	try{
-	    if (r + w.length()- 1 > rw||col - w.length() + 1 < 0){
-		check = false;
-		System.out.println("The word " + w + " is too long");
-	    }}catch(exception e){}
+	if (r + w.length()- 1 > rw||col - w.length() + 1 < 0){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
 	
 	
 	for(int i = 0;i< w.length(); i ++){
@@ -311,7 +306,12 @@ public class WordSearch{
 	w.addWordTopLeft("jasonmason",15,15);
 	w.addWordDownLeft("awesome",9,9);
 	w.addWordDownRight("extra",15,3);
-	System.out.println(w.addWord("test"));
+	try{
+	    System.out.println(w.addWord("test"));
+	    System.out.println(w.addWord("wow"));
+	    System.out.println(w.addWord("bam"));
+	    System.out.println(w.addWord("perfect"));
+	}catch (Exception e){}
 	System.out.println(w);
     }
     
