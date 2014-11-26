@@ -293,7 +293,7 @@ public class WordSearch{
 	//System.out.println(w);
 	w.addWordRight("hello",3,5);
 	w.addWordRight("lock",3,8);
-	w.addWordRight("bah",3,5);
+	w.addWordRight("bah",4,10);
 	w.addWordLeft("look",4,8);
 	w.addWordLeft("man",4,2);
 	w.addWordLeft("tan",4,3);
@@ -309,8 +309,8 @@ public class WordSearch{
 	    System.out.println(w.addWord("test"));
 	    System.out.println(w.addWord("wow"));
 	    System.out.println(w.addWord("bam"));
-	    System.out.println(w.addWord("perfect"));
-	}catch (Exception e){}
+	    System.out.println(w.addWord("perfect"));}
+	catch(Exception e){}
 	System.out.println(w);
     }
     
