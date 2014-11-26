@@ -9,6 +9,7 @@ public class WordSearch{
     private char[][] board;
     private int column;
     private int rw;
+    private char[][] key;
     
     public WordSearch(int r, int c){
 	board = new char[r][c];
@@ -33,7 +34,15 @@ public class WordSearch{
 	    }
 	    s = s + "\n";
 	}
-	return s;
+	String k = "\n\n\n\n";
+	for (int i = 0; i < key.length; i++) {
+	    for (int j = 0; j < key[i].length; j++) {
+		k = k + key[i][j];
+	    }
+	    k = k + "\n";
+	}
+	
+	return s + k;
     }
     
     public boolean addWordRight(String w,int row, int col){
@@ -286,7 +295,24 @@ public class WordSearch{
 	}
 	
     }
-   
+    public void addletters(){
+	Random rand = new Random();
+	key = new char[board.length][board[0].length];
+	for (int i = 0; i < board.length; i++) {
+	    for (int j = 0; j < board[0].length; j++) {
+		key[i][j] = board[i][j];
+	    }
+	}
+	for (int i = 0; i < board.length; i++) {
+	    for (int j = 0; j < board[0].length; j++) {
+		if (board[i][j]=='.'){
+		    String letters = "abcdefghijklmnopqrstuvwxyz";
+		    char letter = letters.charAt(rand.nextInt(letters.length()));
+		    board[i][j]=letter;
+		}
+	    }
+	}
+    }
    
     
     public static void main(String[] args) {
@@ -312,6 +338,8 @@ public class WordSearch{
 	    System.out.println(w.addWord("bam"));
 	    System.out.println(w.addWord("perfect"));
 	}catch (Exception e){}
+	System.out.println("");
+	w.addletters();
 	System.out.println(w);
     }
     

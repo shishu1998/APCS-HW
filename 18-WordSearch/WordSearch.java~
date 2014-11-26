@@ -9,6 +9,7 @@ public class WordSearch{
     private char[][] board;
     private int column;
     private int rw;
+    private char[][] key;
     
     public WordSearch(int r, int c){
 	board = new char[r][c];
@@ -33,7 +34,15 @@ public class WordSearch{
 	    }
 	    s = s + "\n";
 	}
-	return s;
+	String k = "\n\n\n\n";
+	for (int i = 0; i < key.length; i++) {
+	    for (int j = 0; j < key[i].length; j++) {
+		k = k + key[i][j];
+	    }
+	    k = k + "\n";
+	}
+	
+	return s + k;
     }
     
     public boolean addWordRight(String w,int row, int col){
@@ -43,7 +52,6 @@ public class WordSearch{
 	    check = false;
 	    System.out.println("The word " + w + " is too long");
 	}
-    
 
 	    
 	for(int i = 0;i< w.length(); i ++){
@@ -66,7 +74,10 @@ public class WordSearch{
     public boolean addWordLeft(String w, int row, int col){
 	int r = row,c = col;
 	boolean check = true;
-	   
+	if(col - w.length() + 1 < 0){
+	    System.out.println("Error,the word " +  w + " is too long for that index");
+	    check = false;
+	}
 	for(int i = 0;i< w.length(); i ++){
 	    if(board[r][c] != '.' && board[r][c] != w.charAt(i)){
 		System.out.println(w + " conflicts letters with other words");
@@ -87,11 +98,10 @@ public class WordSearch{
     public boolean addWordUp(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
-	try{
-	    if (r - w.length()- 1 < 0){
-		check = false;
-		System.out.println("The word " + w + " is too long");
-	    }}catch(exception e){}
+	if (r - w.length()- 1 < 0){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
 	
 	
 	for(int i = 0;i< w.length(); i ++){
@@ -111,14 +121,13 @@ public class WordSearch{
 	}
 	return check;
     }
-     public boolean addWordDown(String w,int row, int col){
+    public boolean addWordDown(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
-	try{
-	    if (r + w.length()- 1 > rw){
-		check = false;
-		System.out.println("The word " + w + " is too long");
-	    }}catch(exception e){}
+	if (r + w.length()- 1 > rw){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
 	
 	
 	for(int i = 0;i< w.length(); i ++){
@@ -141,11 +150,10 @@ public class WordSearch{
     public boolean addWordTopRight(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
-	try{
-	    if (r - w.length()- 1 < 0 || c + w.length()- 1 > column){
-		check = false;
-		System.out.println("The word " + w + " is too long");
-	    }}catch(exception e){}
+	if (r - w.length()- 1 < 0 || c + w.length()- 1 > column){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
 	
 	
 	for(int i = 0;i< w.length(); i ++){
@@ -171,11 +179,10 @@ public class WordSearch{
     public boolean addWordTopLeft(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
-	try{
-	    if (r - w.length()- 1 < 0 ||col - w.length() + 1 < 0){
-		check = false;
-		System.out.println("The word " + w + " is too long");
-	    }}catch(exception e){}
+	if (r - w.length()- 1 < 0 ||col - w.length() + 1 < 0){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
 	
 	
 	for(int i = 0;i< w.length(); i ++){
@@ -199,15 +206,13 @@ public class WordSearch{
 	return check;
     }
     
-     public boolean addWordDownRight(String w,int row, int col){
+    public boolean addWordDownRight(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
-	try{
-	    if (r + w.length()- 1 > rw||c + w.length()- 1 > column){
-		check = false;
-		System.out.println("The word " + w + " is too long");
-	    }
-	}catch (exception e){}
+	if (r + w.length()- 1 > rw||c + w.length()- 1 > column){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
 	
 	
 	for(int i = 0;i< w.length(); i ++){
@@ -233,11 +238,10 @@ public class WordSearch{
     public boolean addWordDownLeft(String w,int row, int col){
 	int r = row, c = col;
 	boolean check = true;
-	try{
-	    if (r + w.length()- 1 > rw||col - w.length() + 1 < 0){
-		check = false;
-		System.out.println("The word " + w + " is too long");
-	    }}catch(exception e){}
+	if (r + w.length()- 1 > rw||col - w.length() + 1 < 0){
+	    check = false;
+	    System.out.println("The word " + w + " is too long");
+	}
 	
 	
 	for(int i = 0;i< w.length(); i ++){
@@ -291,7 +295,24 @@ public class WordSearch{
 	}
 	
     }
-   
+    public void addletters(){
+	Random rand = new Random();
+	key = new char[board.length][board[0].length];
+	for (int i = 0; i < board.length; i++) {
+	    for (int j = 0; j < board[0].length; j++) {
+		key[i][j] = board[i][j];
+	    }
+	}
+	for (int i = 0; i < board.length; i++) {
+	    for (int j = 0; j < board[0].length; j++) {
+		if (board[i][j]=='.'){
+		    String letters = "abcdefghijklmnopqrstuvwxyz";
+		    char letter = letters.charAt(rand.nextInt(letters.length()));
+		    board[i][j]=letter;
+		}
+	    }
+	}
+    }
    
     
     public static void main(String[] args) {
@@ -311,7 +332,15 @@ public class WordSearch{
 	w.addWordTopLeft("jasonmason",15,15);
 	w.addWordDownLeft("awesome",9,9);
 	w.addWordDownRight("extra",15,3);
-	System.out.println(w.addWord("test"));
+	try{
+	    System.out.println(w.addWord("test"));
+	    System.out.println(w.addWord("wow"));
+	    System.out.println(w.addWord("bam"));
+	    System.out.println(w.addWord("perfect"));
+	    System.out.println(w.addWord("Sleep"));
+	    System.out.println(w.addWord("Stuyvesant"));
+	}catch (Exception e){}
+	w.addletters();
 	System.out.println(w);
     }
     
