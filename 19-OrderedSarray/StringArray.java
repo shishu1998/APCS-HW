@@ -3,6 +3,12 @@ public class StringArray{
     public StringArray(){
 	data = new String[10];
     }
+    public String[] get(){
+	return data;
+    }
+    public void set(int index,String s){
+	data[index] = s;
+    }
     public String toString(){
 	String s = "";
 	for (int i = 0; i < data.length; i ++){
@@ -18,6 +24,16 @@ public class StringArray{
 	    }
 	}
 	return count;
+    }
+    public void grow(){
+	String[] data2 = new String[size() + 10];
+	for(int i = 0; i < data.length; i ++){
+	    data2[i] = data[i];
+	}
+	data = new String[size() + 10];
+	for(int i = 0; i < data.length; i ++){
+	    data[i] = data2[i];
+	}
     }
     public boolean add(String i){
 	int len = data.length;
@@ -46,17 +62,4 @@ public class StringArray{
 	}
 	return original;
     } 
-    public static void main(String[] args){
-	StringArray as = new StringArray();
-	System.out.println(as);
-	System.out.println(as.size());
-	System.out.println(as.add("man"));
-	System.out.println(as.add("tan"));
-	System.out.println(as.add("Dan"));
-	System.out.println(as.add("White"));
-	System.out.println(as.add("Blue"));
-	System.out.println(as);
-	System.out.println(as.remove(0));
-	System.out.println(as);
-    }
 }
