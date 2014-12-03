@@ -17,14 +17,13 @@ public class OrderArray extends StringArray{
     public void add(int index, String i){
 	System.out.println("This method does not exist");
     }
-
      public static void main(String[] args){
         OrderArray as = new OrderArray();
 	System.out.println(as);
 	System.out.println(as.size());
 	as.add(1,"example");
 	System.out.println(as.add("man"));
-	System.out.println(as.add("dan"));
+	System.out.println(as.set("1,dan"));
 	System.out.println(as.add("wow"));
 	System.out.println(as.add("blue"));
 	System.out.println(as.add("ban"));
