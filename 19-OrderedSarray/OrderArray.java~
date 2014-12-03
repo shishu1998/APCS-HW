@@ -1,29 +1,17 @@
 public class OrderArray extends StringArray{
-    /*public int place(String s){
-	int output = 0;
-	if(size() != 0){
-	    for (int i = size() - 1; i > 0; i --){
-		if(s.compareTo(get(i)) > 0){
-		    output = i;
-		    break;
-		}
+    public int find(String w){
+	int len = get().length;
+	int output = len;
+	for (int i = 0; i < len; i ++){
+	    if (get()[i] == null || w.compareTo(get()[i]) <= 0) {
+	        output = i;
+		i = len;
 	    }
 	}
 	return output;
-	}*/
-    public int findPlace(String w){
-	int len = get().length;
-	int result = len;
-	for (int ind = 0; ind < len; ind ++){
-	    if (get()[ind] == null || w.compareTo(get()[ind]) <= 0) {
-		result = ind;
-		break;
-	    }
-	}
-	return result;
     }
     public boolean add(String s){
-	super.add(findPlace(s), s);
+	super.add(find(s), s);
 	return true;
     }
 

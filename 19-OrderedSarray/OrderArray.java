@@ -1,11 +1,10 @@
 public class OrderArray extends StringArray{
     public int find(String w){
-	int len = get().length;
-	int output = len;
-	for (int i = 0; i < len; i ++){
-	    if (get()[i] == null || w.compareTo(get()[i]) <= 0) {
+	int output = 0;
+	for (int i = get().length - 1; i > 0; i --){
+	    if (get()[i] == null || w.compareTo(get()[i]) >= 0) {
 	        output = i;
-		i = len;
+		i = 0;
 	    }
 	}
 	return output;
