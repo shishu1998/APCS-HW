@@ -26,28 +26,45 @@ public class StringArray{
 	return count;
     }
     public void grow(){
-	String[] data2 = new String[size() + 10];
+	String[] data2 = new String[size() + 1];
 	for(int i = 0; i < data.length; i ++){
 	    data2[i] = data[i];
 	}
-	data = new String[size() + 10];
+	data = new String[size() + 1];
 	for(int i = 0; i < data.length; i ++){
 	    data[i] = data2[i];
 	}
     }
-    public boolean add(String i){
+    public boolean add(String s){
 	int len = data.length;
 	if(size() == len){
-	    String []data2 = new String[len + 1];
-	    for(int counter = 0;counter < len; counter ++){
-		data2[counter] = data[counter];
-	    }
-	    data[size()] = i;
+	    grow();
+	    data[size()] = s;
 	}
 	else{
-	    data[size()] = i;
+	    data[size()] = s;
 	}
 	return true;
+    }
+    public void add(int index, String i){
+	if (index>data.length -1){
+	    throw new ArrayIndexOutOfBoundsException();
+	}
+	int len = data.length;
+	if (size() != data.length){
+	    for(int counter = data.length - 1; counter > index; counter --){
+		data[counter] = data[counter - 1];
+	    }
+	    data[index] = i;
+	}
+	else{
+	    grow();
+	    for(int counter = data.length - 1; counter > index; counter --){
+		data[counter] = data[counter - 1];
+	    }
+	    data[index] = i;
+	}
+
     }
     public String get(int index){
 	return data[index];
@@ -62,4 +79,27 @@ public class StringArray{
 	}
 	return original;
     } 
+    public static void main(String[] args){
+	StringArray as = new StringArray();
+	System.out.println(as);
+	System.out.println(as.size());
+	System.out.println(as.add("man"));
+	as.add(1,"tan");
+	System.out.println(as.add("dan"));
+	System.out.println(as.add("white"));
+	System.out.println(as.add("blue"));
+	System.out.println(as.add("ban"));
+	System.out.println(as.add("fan"));
+	System.out.println(as.add("wan"));
+	System.out.println(as.add("bite"));
+	System.out.println(as.add("true"));
+	System.out.println(as.add("san"));
+	System.out.println(as.add("ran"));
+	System.out.println(as.add("can"));
+	System.out.println(as.add("mite"));
+	System.out.println(as.add("clue"));
+	System.out.println(as);
+	System.out.println(as.remove(0));
+	System.out.println(as);
+    }
 }

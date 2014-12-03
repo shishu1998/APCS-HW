@@ -1,34 +1,27 @@
 public class OrderArray extends StringArray{
-    public boolean add(String s){
-	int proper = 0;
-	if(super.get(0) == null){
-	    super.set(proper,s);
-	}
-	else{
-	    for(int i = super.size() - 1; i > 0; i --){
-		if(s.compareTo(super.get(i)) < 0){
-		    proper = i;
-		}
-		if(super.size() == super.get().length){
-		    super.grow();
-		}
-		for( i = super.size() + 1; i > proper + 1; i --){
-		    super.set(i,super.get(i-1));
-		}
-		super.set(proper,s);
+    public int findPlace(String w){
+	int len = get().length;
+	int output = len;
+	for (int i = 0; i < len; i ++){
+	    if (get()[i] == null || w.compareTo(get()[i]) <= 0) {
+	        output = i;
+		break;
 	    }
 	}
+	return output;
+    }
+    public boolean add(String s){
+	super.add(findPlace(s), s);
 	return true;
     }
 
      public static void main(String[] args){
-	StringArray as = new OrderArray();
+        OrderArray as = new OrderArray();
 	System.out.println(as);
 	System.out.println(as.size());
 	System.out.println(as.add("man"));
-	System.out.println(as.add("tan"));
 	System.out.println(as.add("dan"));
-	System.out.println(as.add("white"));
+	System.out.println(as.add("wow"));
 	System.out.println(as.add("blue"));
 	System.out.println(as.add("ban"));
 	System.out.println(as.add("fan"));
@@ -40,8 +33,7 @@ public class OrderArray extends StringArray{
 	System.out.println(as.add("can"));
 	System.out.println(as.add("mite"));
 	System.out.println(as.add("clue"));
-	System.out.println(as);
-	System.out.println(as.remove(0));
+	
 	System.out.println(as);
     }
 }

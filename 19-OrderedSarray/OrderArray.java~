@@ -1,5 +1,52 @@
-public class OrderedArray extends String Array{
-    public void add(String i){
+public class OrderArray extends StringArray{
+    /*public int place(String s){
+	int output = 0;
+	if(size() != 0){
+	    for (int i = size() - 1; i > 0; i --){
+		if(s.compareTo(get(i)) > 0){
+		    output = i;
+		    break;
+		}
+	    }
+	}
+	return output;
+	}*/
+    public int findPlace(String w){
+	int len = get().length;
+	int result = len;
+	for (int ind = 0; ind < len; ind ++){
+	    if (get()[ind] == null || w.compareTo(get()[ind]) <= 0) {
+		result = ind;
+		break;
+	    }
+	}
+	return result;
+    }
+    public boolean add(String s){
+	super.add(findPlace(s), s);
+	return true;
+    }
+
+     public static void main(String[] args){
+        OrderArray as = new OrderArray();
+	System.out.println(as);
+	System.out.println(as.size());
+	System.out.println(as.add("man"));
+	System.out.println(as.add("dan"));
+	System.out.println(as.add("wow"));
+	System.out.println(as.add("blue"));
+	System.out.println(as.add("ban"));
+	System.out.println(as.add("fan"));
+	System.out.println(as.add("wan"));
+	System.out.println(as.add("bite"));
+	System.out.println(as.add("true"));
+	System.out.println(as.add("san"));
+	System.out.println(as.add("ran"));
+	System.out.println(as.add("can"));
+	System.out.println(as.add("mite"));
+	System.out.println(as.add("clue"));
 	
+	System.out.println(as);
     }
 }
+
