@@ -14,11 +14,15 @@ public class OrderArray extends StringArray{
 	super.add(find(s), s);
 	return true;
     }
+    public void add(int index, String i){
+	System.out.println("This method does not exist");
+    }
 
      public static void main(String[] args){
         OrderArray as = new OrderArray();
 	System.out.println(as);
 	System.out.println(as.size());
+	as.add(1,"example");
 	System.out.println(as.add("man"));
 	System.out.println(as.add("dan"));
 	System.out.println(as.add("wow"));
