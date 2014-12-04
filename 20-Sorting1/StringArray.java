@@ -146,11 +146,11 @@ public class StringArray{
 	String s2;
 	for(int i =0; i < size() - 1; i ++){
 	    for(int index = i; index < size() - 1; i ++){
-		if(a[i].compareTo(a[i + 1]) > 0){
-		    s1 = a[i];
-		    s2 = a[i + 1];
-		    a[i] = s2;
-		    a[i + 1] = s1;
+		if(data[i].compareTo(data[i + 1]) > 0){
+		    s1 = data[i];
+		    s2 = data[i + 1];
+		    data[i] = s2;
+		    data[i + 1] = s1;
 		}
 	    }
 	}
@@ -177,13 +177,15 @@ public class StringArray{
 	System.out.println(as.add("can"));
 	System.out.println(as.add("mite"));
 	System.out.println(as);
- 	as.isortdescend();
+ 	/*as.isortdescend();
 	System.out.println(as);
 	as.isortascend();
 	System.out.println(as);
 	as.ssortascend();
 	System.out.println(as);
 	as.ssortdescend();
+	System.out.println(as);*/
+	as.bsort();
 	System.out.println(as);
 	
     }
