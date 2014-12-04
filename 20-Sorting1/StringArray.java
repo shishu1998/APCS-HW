@@ -83,7 +83,7 @@ public class StringArray{
 	String temp;
 	int i;
 	int index;
-	for(i = 0; i < data.length; i ++){
+	for(i = 0; i < size(); i ++){
 	    temp = data[i];
 	    for(index = i;index > 0 && temp.compareTo(data[index - 1]) >= 0; index --){
 		data[index] = data[index - 1];
@@ -95,7 +95,7 @@ public class StringArray{
 	String temp;
 	int i;
 	int index;
-	for(i = 0; i < data.length; i ++){
+	for(i = 0; i < size(); i ++){
 	    temp = data[i];
 	    for(index = i;index > 0 && temp.compareTo(data[index - 1]) <= 0; index --){
 		data[index] = data[index - 1];
@@ -103,6 +103,44 @@ public class StringArray{
 	    data[index] = temp;
 	}
     }
+    public void ssortascend(){
+	String min;
+	String s1;
+	String s2;
+	for(int i = 0; i < size(); i ++){
+	    int pos = size() - 1;
+	    min = data[i];
+	    for(int index = i; index < size(); index ++){
+		if(min.compareTo(data[index]) > 0){
+		    min = data[index];
+		    pos = index;
+		}
+	    }
+	    s1 = data[i];
+	    s2 = min;
+	    data[i] = s2; 
+	    data[pos] = s1;
+	}
+    }
+     public void ssortdescend(){
+	String max;
+	String s1;
+	String s2;
+	for(int i = 0; i < size(); i ++){
+	    int pos = size() - 1;
+	    max = data[i];
+	    for(int index = i; index < size(); index ++){
+		if(max.compareTo(data[index]) < 0){
+		    max = data[index];
+		    pos = index;
+		}
+	    }
+	    s1 = data[i];
+	    s2 = max;
+	    data[i] = s2; 
+	    data[pos] = s1;
+	}
+     }
     public static void main(String[] args){
 	StringArray as = new StringArray();
 	System.out.println(as);
@@ -121,10 +159,14 @@ public class StringArray{
 	System.out.println(as.add("ran"));
 	System.out.println(as.add("can"));
 	System.out.println(as.add("mite"));
-	System.out.println(as);
-	as.isortdescend();
+      	/*System.out.println(as);
+ 	as.isortdescend();
 	System.out.println(as);
 	as.isortascend();
+	System.out.println(as);*/
+	as.ssortascend();
+	System.out.println(as);
+	as.ssortdescend();
 	System.out.println(as);
 	
     }
