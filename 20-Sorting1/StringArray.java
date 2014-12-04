@@ -91,7 +91,18 @@ public class StringArray{
 	    data[index] = temp;
 	}
     }
-    //For ascending order just reverse the loop 
+    public void isortascend(){
+	String temp;
+	int i;
+	int index;
+	for(i = 0; i < data.length; i ++){
+	    temp = data[i];
+	    for(index = i;index > 0 && temp.compareTo(data[index - 1]) <= 0; index --){
+		data[index] = data[index - 1];
+	    }
+	    data[index] = temp;
+	}
+    }
     public static void main(String[] args){
 	StringArray as = new StringArray();
 	System.out.println(as);
@@ -112,6 +123,8 @@ public class StringArray{
 	System.out.println(as.add("mite"));
 	System.out.println(as);
 	as.isortdescend();
+	System.out.println(as);
+	as.isortascend();
 	System.out.println(as);
 	
     }
