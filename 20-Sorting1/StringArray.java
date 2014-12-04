@@ -141,6 +141,23 @@ public class StringArray{
 	    data[pos] = s1;
 	}
      }
+    public void bsort(){
+	String s1;
+	String s2;
+	for(int i =0; i < size() - 1; i ++){
+	    for(int index = i; index < size() - 1; i ++){
+		if(a[i].compareTo(a[i + 1]) > 0){
+		    s1 = a[i];
+		    s2 = a[i + 1];
+		    a[i] = s2;
+		    a[i + 1] = s1;
+		}
+	    }
+	}
+    }
+    //run time of insertion is 0.174 seconds
+    //run time for selection is 0.06 seconds
+    //selection can be said to be better because it has a lower run time and therefore faster
     public static void main(String[] args){
 	StringArray as = new StringArray();
 	System.out.println(as);
@@ -159,11 +176,11 @@ public class StringArray{
 	System.out.println(as.add("ran"));
 	System.out.println(as.add("can"));
 	System.out.println(as.add("mite"));
-      	/*System.out.println(as);
+	System.out.println(as);
  	as.isortdescend();
 	System.out.println(as);
 	as.isortascend();
-	System.out.println(as);*/
+	System.out.println(as);
 	as.ssortascend();
 	System.out.println(as);
 	as.ssortdescend();
