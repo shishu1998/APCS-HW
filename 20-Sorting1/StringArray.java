@@ -158,6 +158,7 @@ public class StringArray{
     //run time of insertion is 0.174 seconds
     //run time for selection is 0.06 seconds
     //selection can be said to be better because it has a lower run time and therefore faster
+    //bubblesort is probably slower than others because it takes form as n^2 instead of n!
     public static void main(String[] args){
 	StringArray as = new StringArray();
 	System.out.println(as);
