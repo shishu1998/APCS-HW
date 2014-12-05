@@ -144,13 +144,13 @@ public class StringArray{
     public void bsort(){
 	String s1;
 	String s2;
-	for(int i =0; i < size() - 1; i ++){
-	    for(int index = i; index < size() - 1; i ++){
-		if(data[i].compareTo(data[i + 1]) > 0){
-		    s1 = data[i];
-		    s2 = data[i + 1];
-		    data[i] = s2;
-		    data[i + 1] = s1;
+	for(int i = 0; i < size() - 1; i ++){
+	    for(int index = 0; index < size() - 1; index ++){
+		if(data[index].compareTo(data[index + 1]) > 0){
+		    s1 = data[index];
+		    s2 = data[index + 1];
+		    data[index] = s2;
+		    data[index + 1] = s1;
 		}
 	    }
 	}
