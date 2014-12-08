@@ -82,6 +82,7 @@ class Sorts {
 	// builtin = 0.079 s
 	//ssort = 0.046s
 	//isort = 0.024s
+	// The builtin method seems to be slower than the other methods
 	s.backup();
 	s.builtin();
 	s.restore();
