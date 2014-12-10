@@ -21,17 +21,42 @@ public class Interval{
 	output = output + ")";
 	return output;
     }
+    public int getLow(){
+	return low;
+    }
+    public int getHigh(){
+	return high;
+    }
+    public int compareTo(Interval b){
+	if(low > b.getLow()){
+	    return 1;
+	}
+	else if(low < b.getLow()){
+	    return -1;
+	}
+	else if(high > b.getHigh()){
+	    return 1;
+	}
+	else if(high < b.getHigh()){
+	    return -1;
+	}
+	else{
+	    return 0;
+	}
+    }
     public static void main(String[] args){
-	Interval a = new Interval();
-	System.out.println(a);
-	 Interval[] b = new Interval[10];
-	 for(int i = 0; i < b.length ; i ++){
-	     Interval temp;
-	     temp = new Interval();
-	     b[i] = temp;
-	     System.out.println(temp);
+	Interval[] b = new Interval[10];
+	for(int i = 0; i < b.length ; i ++){
+	    Interval temp;
+	    temp = new Interval();
+	    b[i] = temp;
+	    System.out.println(temp);
 	     
-	 }
-	 
+	}
+	Interval a = new Interval();
+	Interval c = new Interval();
+	System.out.println("Interval a:" + a);
+	System.out.println("Interval c:" + c);
+	System.out.println(a.compareTo(c)); 
     }
 }
