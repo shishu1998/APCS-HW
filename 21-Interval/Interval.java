@@ -29,16 +29,16 @@ public class Interval{
     }
     public int compareTo(Interval b){
 	if(low > b.getLow()){
-	    return 1;
+	    return low - b.getLow();
 	}
 	else if(low < b.getLow()){
-	    return -1;
+	    return low - b.getLow();
 	}
 	else if(high > b.getHigh()){
-	    return 1;
+	    return high - b.getHigh();
 	}
 	else if(high < b.getHigh()){
-	    return -1;
+	    return high - b.getHigh();
 	}
 	else{
 	    return 0;
