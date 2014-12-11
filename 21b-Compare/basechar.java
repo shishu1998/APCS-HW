@@ -72,7 +72,7 @@ public class basechar implements Comparable{
 	    al[i] = new basechar();
 	}
 	Arrays.sort(al);
-	for(int b = 0; b < al.length - 1; b ++){
+	for(int b = 0; b < al.length; b ++){
 	    System.out.println(al[b].getname());
 	}
     }
