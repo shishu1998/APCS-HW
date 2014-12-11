@@ -67,10 +67,13 @@ public class basechar implements Comparable{
 	return this.getname().compareTo(a.getname());
     }
     public static void main(String[] args){
-	basechar a = new basechar();
-	basechar b = new basechar();
-	System.out.println(a.getname());
-	System.out.println(b.getname());
-	System.out.println(a.compareTo(b));
+	ArrayList<basechar> al = new ArrayList<basechar>();
+	for(int i = 0; i < 5; i ++){
+	    al.set(i,new basechar());
+	}
+	Collections.sort(al);
+	for(int b = 0; b < al.size(); b ++){
+	    System.out.println(al.get(1).getname());
+	}
     }
 }
