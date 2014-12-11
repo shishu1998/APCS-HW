@@ -1,13 +1,24 @@
-public class basechar{
+import java.io.*;
+import java.util.*;
+public class basechar implements Comparable{
     private int health = 200;
     private  int attack = 30;
     private  int armor = 10;
     private int mana = 50;
     private  String name = "";
     private int luck = 0;
+    private Random rand = new Random();
     
     //Constructors
-    
+    public basechar(){
+	int sub;
+	String letters = "abcdefghijklmnopqrstuvwxyz";
+	for(int i = 0; i < 5; i ++){
+	    sub = rand.nextInt(26);
+	    name = name + letters.substring(sub,sub + 1);
+	
+	}
+    }
     //Methods
     public int gethealth(){
 	return health;
@@ -50,5 +61,16 @@ public class basechar{
     }
     public int getcrit(){
         return this.luck;
+    }
+    public int compareTo(Object other){
+	basechar a = (basechar)other;
+	return this.getname().compareTo(a.getname());
+    }
+    public static void main(String[] args){
+	basechar a = new basechar();
+	basechar b = new basechar();
+	System.out.println(a.getname());
+	System.out.println(b.getname());
+	System.out.println(a.compareTo(b));
     }
 }
