@@ -1,0 +1,14 @@
+https://github.com/edwardshen123/ZombieMiami
+
+Weapon.java - @line25 I think you can make weapons have different colors just like how 
+they are dropped to add some effects, but it's only my opinion
+Also weapon types do not work
+
+Zombie.java - @line57 I feel charger is way too fast and since zombies can stand on the same 
+spot as you it's really hard to kill him, might want to tone him down a bit, but it's also 
+just my opinion
+
+GamePanel.java - Should make the gui in the center of the screen and also the size doesn't change
+when u maximize
+
+Mask*.java - None of the masks are implemented as of yet
